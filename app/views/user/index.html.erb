@@ -1,0 +1,25 @@
+<%= content_tag :h2, t('.my_courses') %>
+
+<% @courses.each do |course| %>
+  <%= content_tag :p do %>
+    <%= course.title %>
+    <% if course.passed_by_user? @user %>
+      <%= content_tag :span, t('.course_passed'), class: :completed %>
+    <% else %>
+      <%= link_to t('.pass_course'), pass_course_user_index_path(id: course.id) %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= content_tag :h2, t('.my_tests') %>
+
+<% @tests.each do |test| %>
+  <%= content_tag :p do %>
+    <%= test.title %>
+    <% if test.passed_by_user? @user %>
+      <%= content_tag :span, t('.test_passed'), class: :completed %>
+    <% else %>
+      <%= link_to t('.pass_test'), pass_test_user_index_path(id: test.id) %>
+    <% end %>
+  <% end %>
+<% end %>

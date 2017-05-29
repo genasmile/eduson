@@ -1,0 +1,37 @@
+<%= content_tag :div do %>
+  <%= content_tag :h2, t('.courses_added') %>
+<% end %>
+
+<% @courses.each do |course| %>
+  <%= content_tag :div do %>
+    <%= t('.course', title: course.title) %>
+  <% end %>
+  <%= content_tag :div do %>
+    <%= t('.learning') %>: 
+    <% users = @courses_users[course.id] %>
+    <% users.each do |user| %>
+      <%= user.fio %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= content_tag :div do %>
+  <%= content_tag :h2, t('.tests_added') %>
+<% end %>
+    
+<% @tests.each do |test| %>
+  <%= content_tag :div do %>
+    <%= t('.test', title: test.title) %>
+  <% end %>
+  <%= content_tag :div do %>
+    <%= t('.passing') %>: 
+    <% users = @tests_users[test.id] %>
+    <% users.each do |user| %>
+      <%= user.fio %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= br %><%= br %>
+
+<%= content_tag :div, link_to(t('.add_courses_and_tests'), admin_index_path) %>

@@ -1,0 +1,52 @@
+<%= page_title t('.title') %>
+<%= content_tag :div, class: 'admin-block' do %>
+  <%= content_tag :div, t('.check_users'), class: 'admin-block-item' %>
+  <%= content_tag :div, t('.users'), class: 'admin-block-item' %>
+  <%= content_tag :div, t('.passed_courses'), class: 'admin-block-item' %>
+  <%= content_tag :div, t('.passed_tests'), class: 'admin-block-item' %>
+<% end %>
+
+<%= form_tag add_courses_and_tests_admin_index_path do %>
+  <% @users.each do |user| %>
+    <%= content_tag :div, class: 'admin-block' do %>
+      <%= content_tag :div, class: 'admin-block-item' do %>
+        <%= check_box_tag 'users[]', user.id %>
+      <% end %>
+      <%= content_tag :div, class: 'admin-block-item' do %>
+        <%= user.fio %>
+      <% end %>
+      <%= content_tag :div, class: 'admin-block-item' do %>
+        <%= user.user_courses.passed.count %>
+      <% end %>
+      <%= content_tag :div, class: 'admin-block-item' do %>
+        <%= user.user_tests.passed.count %>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <%= content_tag :div do %>
+    <%= content_tag :div do %>
+      <%= label_tag :courses, t('.courses_list') %>
+    <% end %>
+    <%= content_tag :div do %>
+      <%= select_tag :courses, options_from_collection_for_select(@courses, :id, :title), multiple: true %>
+    <% end %>
+  <% end %>
+
+  <%= content_tag :div do %>
+    <%= content_tag :div do %>
+      <%= label_tag :courses, t('.tests_list') %>
+    <% end %>
+    <%= content_tag :div do %>
+      <%= select_tag :tests, options_from_collection_for_select(@tests, :id, :title), multiple: true %>
+    <% end %>
+  <% end %>
+
+  <%= content_tag :div do %>
+    <%= button_tag t('.save'), type: :submit %>
+  <% end %>
+
+<% end %>
+
+<%= br %><%= br %>
+<%= content_tag :div, link_to(t('.nav_to_courses_and_tests'), courses_and_tests_admin_index_path) %>

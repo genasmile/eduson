@@ -1,0 +1,43 @@
+ru:
+  layouts:
+    application:
+      logout: выйти
+      course_completed: 
+  guest:
+    index:
+      title: Страница входа
+      login: Логин
+      pass: Пароль
+      auth: Войти
+      auth_error: "Логин или пароль введены неправильно. Попробуйте войти еще раз."
+  admin:
+    index:
+      title: Список пользователей
+      check_users: Выбор пользователей
+      users: Пользователи
+      passed_courses: Пройденых курсов
+      passed_tests: Пройденых тестов
+      courses_list: "Список курсов:"
+      tests_list: "Список тестов:"
+      save: Назначить
+      nav_to_courses_and_tests: Список присвоенных курсов и тестов
+    courses_and_tests:
+      courses_added: Присвоенные курсы
+      tests_added: Присвоенные тесты
+      course: 'Курс "%{title}"'
+      learning: Изучают
+      test: 'Тест "%{title}"'
+      passing: Сдают
+      add_courses_and_tests: Присвоить пользователям курсы и тесты
+  user:
+    index:
+      my_courses: Мои курсы
+      my_tests: Мои тесты
+      pass_course: Пройти курс
+      pass_test: Пройти тест
+      course_passed: курс пройден
+      test_passed: тест пройден
+    pass_course:
+      course_completed: Поздравляем! Вы прошли курс.
+    pass_test:
+      test_completed: Поздравляем! Вы прошли тест.

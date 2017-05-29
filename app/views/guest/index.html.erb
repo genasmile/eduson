@@ -1,0 +1,28 @@
+<%= page_title t('.title') %>
+<% if @login_error %>
+  <%= error_block t('.auth_error') %>
+<% end %>
+
+<%= form_tag authenticate_guest_index_path, role: "form" do %>
+  <%= content_tag :div, class: 'form' do %>
+
+    <%= content_tag :div, class: 'form-block' do %>
+      <%= label_tag(t('.login')) %>
+    <% end %>
+    <%= content_tag :div, class: 'form-block' do %>
+      <%= text_field_tag :login, @login %>
+    <% end %>
+
+    <%= content_tag :div, class: 'form-block' do %>
+      <%= label_tag t('.pass') %>
+    <% end %>
+    <%= content_tag :div, class: 'form-block' do %>
+      <%= password_field_tag :pass, @pass %>
+    <% end %>
+
+    <%= content_tag :div, class: 'form-block' do %>
+      <%= button_tag t('.auth'), type: :submit %>
+    <% end %>
+
+  <% end %>
+<% end %>

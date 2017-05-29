@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Онлайн-курсы для обучения сотрудников</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if @user %>
+    <%= @user.fio %> <%= link_to t('.logout'), logout_guest_index_path %>
+<% end %>
+
+<%= content_tag :div, class: :container do %>
+  <% if flash[:notice] %>
+    <%= content_tag :div, raw(flash[:notice]), class: "notice-alert" %>
+  <% end %>
+
+  <%= yield %>
+<% end %>
+
+</body>
+</html>
